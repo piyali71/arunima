@@ -39,77 +39,33 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title><script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="PushNotification.js"></script>
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #blanker {
-            width: 96px;
-            height: 96px;
-            background: url('loader.gif') no-repeat center center;
-            display: none;
-            z-index: 1000;
-            position: absolute;
-        }
-
-        #offline-screen {
-            width: 100%;
-            background: url('connectionlost.png') no-repeat center center;
-            image-size: contain;
-            display: none;
-            z-index: 1000;
-            position: absolute;
-        }
-    </style>
-    
+    <script type="text/javascript">
+       
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+			alert('hi..');
+			}
+	</script>
 </head>
 
 <body>
-    <p id="deviceProperties">Loading device properties...</p>
-  <div>Ready</div>
-   <iframe src="http://app.pradict.com" name="container-frame" id="container-frame" seamless="seamless" width="100%" height="100%" style="overflow-x: hidden; border: none;"></iframe>
+    <div class="app">
+        <h1>PhoneGap</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
+       
 		document.addEventListener("deviceready", onDeviceReady, false);
-		// device APIs are available
-		var deviceId = '';
-        var pushNotification;
-        // Initializing global variables
-        var flag = true;
-
 		function onDeviceReady() {
-			alert('hi');
-			pushNotification = window.plugins.PushNotification;			
-			PushNotification.prototype.register(
-				tokenHandler,
-				errorHandler,
-				{
-				}
-			);
-			
-		}
-		// Handle push token result
-		function tokenHandler (result) {
-			var element = document.getElementById('deviceProperties');
-			element.innerHTML = 'devId'+result;			
-		}
-		
-		// result contains any error description text returned from the plugin call
-		function errorHandler (error) {
-			var element = document.getElementById('deviceProperties');
-			element.innerHTML = 'devId Error'+error;
-		}
-		
-    </script>
+			alert('hi..');
+			}
+	</script>
+    
 </body>
 
 </html>
